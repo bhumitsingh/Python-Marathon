@@ -2,13 +2,15 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import random
 import time
+import os
 
 # Create main window
 root = tk.Tk()
 root.title("Rolling Dice Animation")
 
 # Load dice images
-dice_faces = [ImageTk.PhotoImage(Image.open(f"dice{i}.png").resize((100, 100))) for i in range(1, 7)]
+assets_path = os.path.join(os.path.dirname(__file__), "assets")
+dice_faces = [ImageTk.PhotoImage(Image.open(os.path.join(assets_path, f"dice{i}.png")).resize((100, 100))) for i in range(1, 7)]
 
 # Label to display dice
 dice_label = tk.Label(root, image=dice_faces[0])
